@@ -1,0 +1,15 @@
+{
+  "name": "Duang",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel serve src/index.html --open chrome",
+    "build": "parcel build src/index.html"
+  },
+  "dependencies": {
+    "less": "^3.0.4",
+    "parcel-bundler": "^1.8.1"
+  }
+}
