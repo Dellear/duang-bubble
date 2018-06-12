@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "rimraf dist .cache && copyfiles -f src/img/**/*.svg dist/img && parcel serve src/index.html",
-    "build": "rimraf dist .cache && parcel build src/index.html"
+    "build": "rimraf dist .cache && copyfiles -f src/img/**/*.svg dist/img && parcel build src/index.html --no-source-maps --public-url ./"
   },
   "dependencies": {
     "jquery": "^3.3.1"
