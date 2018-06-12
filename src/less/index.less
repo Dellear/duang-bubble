@@ -1,6 +1,8 @@
 @import "base";
 @width: 600px;
 @sound-content-width: 200px;
+@transition-time: .3s;
+
 h1 {
     color: rgb(73, 73, 73);
     font-weight: normal;
@@ -44,10 +46,6 @@ article {
             left: 50%;
             margin-left: -@sound-content-width / 2;
             top: -10px;
-            opacity: 0;
-            transform: translate(0, -20px);
-            transition: opacity 0.4s ease, 
-                        transform 0.4s ease;
 
             svg {
                 position: absolute;
@@ -77,15 +75,71 @@ article {
             .sound-content {
                 left: 10px;
                 padding: 20px 38px 0 20px;
+
+                svg path, p {
+                    opacity: 0;
+                    transform: scale(.3);
+                    transform-origin: center;
+                    transition: opacity @transition-time ease,
+                                transform @transition-time ease;
+                }
+            }
+
+            .avator:hover + .sound-content {
+                svg {
+                    path {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+
+                    #path1 {
+                        transition-delay: 0s;
+                    }
+
+                    #path2 {
+                        transition-delay: @transition-time / 3;
+                    }
+
+                    #path3 {
+                        transition-delay: @transition-time / 3 * 2;
+                    }
+
+                    #path4 {
+                        transition-delay: @transition-time;
+                    }
+                }
+
+                p {
+                    opacity: 1;
+                    transform: scale(1);
+                    transition-delay: @transition-time;
+                }
             }
         }
 
         &:last-child {
             .sound-content {
                 padding: 10px 12px 18px;
+
+                svg polygon, p {
+                    stroke-dasharray: 1500;
+                    stroke-dashoffset: -1500;
+                    opacity: 0;
+                    transition: all .8s ease;
+                }
+            }
+
+            .avator:hover + .sound-content {
+                svg polygon, p {
+                    stroke-dashoffset: 0;
+                    opacity: 1;
+                }
+
+                p {
+                    transition-delay: .3s;
+                }
             }
         }
     }
 
-    
 }
