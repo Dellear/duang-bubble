@@ -5,11 +5,17 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel serve src/index.html --open chrome",
-    "build": "parcel build src/index.html"
+    "start": "rimraf dist .cache && copyfiles -f src/img/**/*.svg dist/img && parcel serve src/index.html",
+    "build": "rimraf dist .cache && parcel build src/index.html"
   },
   "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.2",
+    "copyfiles": "^2.0.0",
     "less": "^3.0.4",
-    "parcel-bundler": "^1.8.1"
+    "parcel-bundler": "^1.8.1",
+    "rimraf": "^2.6.2"
   }
 }
